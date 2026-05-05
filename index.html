@@ -4,29 +4,59 @@
      <title> Toyota Curiosities </title>
      <style>
      body {
-         background-color: white;
-         font-family: Arial;
-         margin: 0;
+         background:
+              radial-gradient(circle at top left, #f3f3f3, white 60%);
+          font-family: Arial;
+          margin: 0;
+          overflow-x: hidden;
+     }
+
+     body::before {
+          content: "";
+          position: fixed;
+          top: -200px;
+          left: -200px;
+          width: 700px;
+          height: 700px;
+          background:
+          radial-gradient(circle, rgba(139, 0 , 0 , 0.08) , transparent 70%);
+          z-index: -1;
+     }
+
+     body::after {
+          content: "";
+          position: fixed;
+          bottom: -250px;
+          right: -250px;
+          background:
+          radial-gradient(circle, rgba(0, 0 , 0 , 0.05) , transparent 70%;
+          z-index: -1;
      }
 
      /* MENU */
      nav  {
-          background-color: #111;
-          padding: 15px;
+          background:
+               rgba(15 , 15 , 15 , 0.9);
+          backdrop-filter: blur(10px);
+          padding: 18px;
           text-align: center;
           position: sticky;
           top: 0;
+          z-index: 1000;
+          box-shadow:
+               0 4px 20px rgba(0 , 0 , 0 , 0. 1);
      }
 
      nav a {
            color: white;
-           margin: 0 15px;
+           margin: 0 10px;
            text-decoration: none;
            font-weight: bold;
-           transition: 0.3s;
-          padding: 12px 25px;
-          border-radius: 10px;
-          font-size: 18px;
+           transition: 0.35s;
+          padding: 12px 28px;
+          border-radius: 40px;
+          font-size: 17px;
+          display: inline-block;
      }
 
      /* barra entre itens*/
@@ -37,8 +67,10 @@
      }
 
      nav a:hover {
-         color: red;
-          background-color: darkred;
+         background:
+              rgba(255, 255 , 255 , 0. 15);
+          transform:
+               translateY(-2px);
      }
 
      /* SECÇÕES */
@@ -48,7 +80,11 @@
           animation: aparecer 0.4s;
      }
           nav a.active {
-               background-color: darkred;
+               background: white;
+               color: darkred:
+               box-shadow:
+               0 4px 15px rgba(0, 0 ,0 , 0. 15);
+          }
 
      #modelos {
           display: block;
@@ -76,28 +112,75 @@
      
      /* CARDS */
      .card {
-         border: 1px solid #ccc;
-         border-radius: 15px;
-         padding: 15px;
-         margin-bottom: 20px;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+         border: 1px solid rgba(255, 255 , 255 , 0.4);
+         border-radius: 25px;
+         padding: 25px;
+         margin-bottom: 30px;
+          box-shadow: 0 8px 25px rgba(0, 0 , 0 , 0.08);
+          background:
+               rgba(255 , 255 , 255 , 0.75);
+          backdrop-filter: blur(10px)
+          transition: 0,4s;
      }
 
-
+     .card::hover {
+          transform:
+          translateY(-8px);
+          box-shadow:
+          0 15px 35px rgba(0 , 0 , 0 , 0.12);
+     }
+          
      h1   {
-         text-align: center;                
+         text-align: center;  
+          font-size: 50px;
+          color: darkred;
+          margin-top: 25px;
+          letter-spacing: 1px;
+     }
+
+     p {
+          line-height: 1.7;
+          color: #333;
      }
 
      img  {
          display: block;
          margin: auto;
-          border-radius: 10px;
+          border-radius: 18px;
+          width: 300px;
+          transition: 0.5s;
+          box-shadow:
+               0 8px 20px rgba(0 , 0 , 0 , 0.15)
      }
+
+     img:hover {
+          transform:
+          scale(1.04);
+     }
+     
 
 
      h2   {
          color: darkred;
      }
+
+     .section {
+          animation:
+               aparecerr 0.5s ease;
+     }
+          @keyframes aparecer {
+               from {
+                    opacity: 0;
+                    transform:
+                         translateY(15px)
+               }
+               to {
+                    opacity: 1;
+                    transform:
+                         translateY(0);
+               }
+          }
+          
 
      </style>
      </head>
