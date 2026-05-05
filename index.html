@@ -12,8 +12,10 @@
      /* MENU */
      nav  {
           background-color: #111;
-          padding 10px;
+          padding: 15px;
           text-align: center;
+          position: sticky;
+          top: 0;
      }
 
      nav a {
@@ -21,6 +23,10 @@
            margin: 0 15px;
            text-decoration: none;
            font-weight: bold;
+           transition: 0.3s;
+          padding: 12px 25px;
+          border-radius: 10px;
+          font-size: 18px;
      }
 
      /* barra entre itens*/
@@ -32,13 +38,32 @@
 
      nav a:hover {
          color: red;
+          background-color: darkred;
      }
 
      /* SECÇÕES */
      .section {
          display: none;
          padding: 20px;
+          animation: aparecer 0.4s;
      }
+          nav a.active {
+               background-color: darkred;
+
+     #modelos {
+          display: block;
+
+          @keyframes aparecer {
+               from {
+                    opacity: 0;
+                    transform: translateY(10px);
+               }
+
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+          }          
 
      .section:target {
          display: block;
@@ -53,8 +78,9 @@
      .card {
          border: 1px solid #ccc;
          border-radius: 15px;
-         padding: 10px;
-         margin-bottom 15px;
+         padding: 15px;
+         margin-bottom: 20px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.08);
      }
 
 
@@ -65,6 +91,7 @@
      img  {
          display: block;
          margin: auto;
+          border-radius: 10px;
      }
 
 
@@ -79,12 +106,19 @@
 
      <!-- MENU -->
      <nav>
-         <a href="#home">Modelos</a>
-         <a href="#empresa">Empresa</a>
+         <a href="#" class="active"
+              onclick="mostrarPagina( 'modelos', this)">
+              Modelos
+         </a>
+
+          <a href="#"
+               onclick="mostarPagina( 'empresa', this)">
+               Empresa
+          </a>
      </nav>
 
      <!-- ABA 1 -->
-     <div id="home" class="section">
+     <div id="modelos" class="section">
 
           <!-- Logo -->
           <img src="logo.png" width="120">
@@ -197,12 +231,35 @@ Hoje, a Toyota investe em carros eléctricos e hidrogénio, buscando um futuro m
 <div>
 
          <!-- Rodapé-->
-         <div style="text-align: center";margin-top: 40px; font-size: 14px">
+         <div style="text-align: center; margin-top: 40px; font-size: 14px; padding-bottom: 20px;">
               <p><strong>Criadores do site:</strong></p>
               <p>Cleiton, Maikel, Alicia, Odete e Tainara</p>
 
               <p style="margin-top: 15px;">Site destinado a avaliação para a disciplina de tics</p>
          </div>
+     
+</script>
+     function mostrarPagina(id, botao) {
+
+     let seccoes =
+     document.querySelectorAll('.section');
+
+     seccoes.forEach(seccao => {
+     seccao.style.display = 'none';
+     });
+
+     document.getElementById(id).style.display = 'block';
+
+     let botoes =
+     document.querySelectorAll('nav a');
+
+     botoes.forEach(btn => {
+         btn.classList.remove('active');
+     });
+
+     botao.classList.add('active');
+     }
+     
 
 
 
